@@ -74,14 +74,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .converter {
-    padding: 0 30px;
+    padding: 0 15px;
     margin-top: 100px;
 }
 
 .converter__container {
     max-width: 550px;
-    height: 250px;
-    padding: 30px;
+    min-height: 250px;
+    padding: 15px;
     margin: 0 auto;
     background-color: #ffffff;
     border-radius: 5px;
@@ -90,7 +90,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .converter__container h1 {
-    position: relative;
+    /* position: relative; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-family: Raleway;
     font-size: 30px;
     text-align: center;
@@ -102,23 +105,28 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .converter__container h1::before, .converter__container h1::after {
-    position: absolute;
+    /* position: absolute; */
+    flex: 0 1 70px;
     content: '';
-    width: 70px;
+    /* width: 70px; */
     height: 3px;
     background-color: #7788d6;
-    top: 12px;
+    /* margin: 0 12px 0 0; */
+    /* top: 12px; */
 }
 
 .converter__container h1::before {
-    left: 0;
+    margin-right: 10px;
 }
 
 .converter__container h1::after {
-    right: 0;
+    margin-left: 10px;
 }
 
 .converter__container p {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     font-family: Raleway;
     font-size: 20px;
     margin-bottom: 20px;
@@ -138,17 +146,17 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing: 1px;
     font-weight: 500;
     color: #333333;
-    margin-right: 20px;
+    /* margin-right: 20px; */
     background: none;
     border-radius: 5px;
 }
 
 .input {
-    margin-left: 61px;
+    margin-left: 40px;
 }
 
 .output {
-    margin-left: 20px;
+    /* margin-left: 20px; */
     user-select: none;
     cursor: default;
 }
@@ -162,4 +170,26 @@ h1, h2, h3, h4, h5, h6 {
     text-transform: uppercase;
     cursor: pointer;
     background: none;
+}
+
+@media screen and (max-width:570px) {
+    .converter__container h1 {
+        font-size: 24px;
+    }
+    /* .converter__container>p, .converter__container select {
+        font-size: 16px;
+    } */
+    .converter__container input {
+        width: 170px;
+        margin: 0;
+    }
+    .converter__container>p {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        grid-gap: 10px;
+    }
+    .converter__container select {
+        order: -1;
+    }
 }
